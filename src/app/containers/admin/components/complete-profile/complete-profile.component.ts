@@ -10,6 +10,7 @@ import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
 export class CompleteProfileComponent {
   form: FormGroup;
   imageUrl: string | null = null;
+  file!: File;
   constructor(
     public formUtils: ValidaFormService,
     private formBuilder: NonNullableFormBuilder
@@ -31,16 +32,15 @@ export class CompleteProfileComponent {
           Validators.maxLength(15),
         ],
       ],
-      photo: ['', Validators.required],
     });
   }
-  onSubmit() {
-    console.log(this.form);
-  }
+  onSubmit() {}
   onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.readImage(file);
+    this.file = event.target.files[0];
+
+    console.log(this.file);
+    if (this.file) {
+      this.readImage(this.file);
     }
   }
 
