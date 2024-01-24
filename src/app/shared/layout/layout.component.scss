@@ -1,0 +1,9 @@
+main {
+  @apply flex-1 items-center z-10 flex justify-center;
+}
+.main-layout {
+  @apply flex flex-col min-h-screen bg-dark;
+}
+nav {
+  @apply mt-10 flex justify-end mr-10;
+}

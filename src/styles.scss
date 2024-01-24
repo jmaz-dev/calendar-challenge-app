@@ -1,1 +1,35 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$join-my-pt-app-primary: mat.define-palette(mat.$brown-palette, A700);
+$join-my-pt-app-accent: mat.define-palette(mat.$yellow-palette, A700);
+
+$join-my-pt-app-primary-palette: mat.define-palette($join-my-pt-app-primary);
+$join-my-pt-app-accent-palette: mat.define-palette($join-my-pt-app-accent);
+
+$join-my-pt-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $join-my-pt-app-primary-palette,
+      accent: $join-my-pt-app-accent-palette,
+    ),
+  )
+);
+
+// Aplique o tema a todos os componentes
+@include mat.all-component-themes($join-my-pt-app-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

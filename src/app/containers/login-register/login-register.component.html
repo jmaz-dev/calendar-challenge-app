@@ -1,0 +1,63 @@
+<section class="justify-center" *ngIf="entrar">
+  <button
+    matRipple
+    class="bg-secondary py-4 px-10 rounded-lg text-lg font-medium text-white"
+    (click)="entrar = !entrar"
+  >
+    Entrar
+  </button>
+</section>
+<section *ngIf="!entrar">
+  <div class="bg-primary border-secondary border-2 rounded-lg">
+    <form class="p-8 flex flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 class="text-xl">{{ title | register }}</h2>
+      <p class="text-sm">
+        para continuar com <span class="underline">Join My PT</span>
+      </p>
+      <mat-form-field appearance="fill" class="mt-10 mb-2">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.invalid"
+          ><small>{{ formUtils.getErrorMessage(form, "email") }}</small>
+          <br />
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="mb-2">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+        />
+        <mat-error *ngIf="form.get('password')?.invalid"
+          ><small>{{ formUtils.getErrorMessage(form, "password") }}</small>
+          <br />
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button
+        matRipple
+        class="bg-button py-2 rounded-lg text-lg font-medium text-black border-secondary border-2"
+        type="submit"
+      >
+        Continuar
+      </button>
+      <p class="text-sm mt-1">
+        {{ help | register }}
+        <a
+          class="underline text-blue-600 cursor-pointer"
+          (click)="loginScreen()"
+          >{{ link | register }}</a
+        >
+      </p>
+    </form>
+  </div>
+</section>
