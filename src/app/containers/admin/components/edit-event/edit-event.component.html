@@ -6,7 +6,7 @@
     (ngSubmit)="onSubmit()"
   >
     <div>
-      <h2 class="text-xl">Novo evento</h2>
+      <h2 class="text-xl">Editar evento</h2>
       <p class="text-sm mt-1">
         Crie e compatilhe <span class="underline">Join My PT</span>
       </p>
@@ -42,7 +42,7 @@
           <br />
         </mat-error>
       </mat-form-field>
-      <div class="flex gap-4">
+      <div class="flex flex-col gap-4">
         <div class="flex justify-center items-center gap-8">
           <button
             matRipple
@@ -62,6 +62,14 @@
             </button>
           </div>
         </div>
+        <button
+          matRipple
+          class="delete-button whitespace-nowrap text-center"
+          type="button"
+          (click)="onDelete()"
+        >
+          Excluir evento
+        </button>
       </div>
     </div>
   </form>

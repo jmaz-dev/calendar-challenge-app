@@ -7,9 +7,18 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { CompleteProfileComponent } from './components/complete-profile/complete-profile.component';
 import { AdminComponent } from './admin.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { EditEventComponent } from './components/edit-event/edit-event.component';
 
 @NgModule({
-  declarations: [ViewEventsComponent, CreateEventComponent, CompleteProfileComponent, AdminComponent],
+  declarations: [
+    ViewEventsComponent,
+    CreateEventComponent,
+    CompleteProfileComponent,
+    AdminComponent,
+    CardsComponent,
+    EditEventComponent,
+  ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
 export class AdminModule {}

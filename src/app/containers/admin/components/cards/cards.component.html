@@ -1,0 +1,14 @@
+<section
+  class="bg-container border-2 border-secondary rounded-xl p-8 hover:brightness-95 cursor-pointer"
+  (click)="openDialog()"
+>
+  <div class="flex justify-center items-center gap-1">
+    <p>Guarde a data</p>
+    <mat-icon>event_note</mat-icon>
+  </div>
+  <div class="flex flex-col mt-2">
+    <span>De: {{ data.startDate | date : "dd/MM/yyyy" }}</span>
+    <span>Até: {{ data.endDate | date : "dd/MM/yyyy" }}</span>
+  </div>
+  <p class="mt-2">{{ data.description }}</p>
+</section>

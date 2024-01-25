@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { MAT_DATE_LOCALE, DateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent, LoginRegisterComponent],
@@ -24,7 +25,11 @@ import { ToastrModule } from 'ngx-toastr';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(_adapter: DateAdapter<any>) {
+    _adapter.setLocale('pt');
+  }
+}

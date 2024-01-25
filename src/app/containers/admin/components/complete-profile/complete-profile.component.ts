@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { UserRequest } from 'src/app/classes/user-request';
+import { UserRequest } from 'src/app/shared/interfaces/user-request';
 import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
 import { AdminService } from '../../service/admin.service';
 import { ToastrService } from 'ngx-toastr';
@@ -43,19 +43,19 @@ export class CompleteProfileComponent {
     });
   }
   onSubmit() {
+    if (this.form.invalid) {
+      return this.formUtils.validateAllFormField(this.form);
+    }
     const formData = new FormData();
     formData.append('name', this.form.value.name);
     formData.append('lastName', this.form.value.lastName);
     formData.append('photo', this.file);
 
-    if (this.form.invalid) {
-      return this.formUtils.validateAllFormField(this.form);
-    }
     this.adminSrv.complete(formData).subscribe({
       next: (res) => {
         console.log(res);
         if (!res.error) {
-          this.toastr.success('Sucesso!');
+          this.toastr.success('Usuário atualizado', 'Sucesso!');
           session.setItem('needsProfile', 'false');
           setTimeout(() => {
             this.router.navigate(['/admin']);

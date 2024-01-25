@@ -34,5 +34,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .custom-button {
-  @apply bg-button py-2 px-10 rounded-xl text-base hover:bg-button/80 font-medium text-black border-secondary border-2;
+  @apply bg-button py-2 px-10 rounded-xl text-base hover:brightness-95 font-medium text-black border-secondary border-2;
+}
+.delete-button {
+  @apply bg-red-400 py-2 px-10 rounded-xl text-base hover:brightness-95 font-medium text-black border-red-700 border-2;
 }

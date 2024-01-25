@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserRequest } from 'src/app/classes/user-request';
+import { UserRequest } from 'src/app/shared/interfaces/user-request';
 import { first, catchError, of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Urls } from 'src/app/classes/urls';
-import { AuthResponse } from 'src/app/classes/auth-response';
+import { AuthResponse } from 'src/app/shared/interfaces/auth-response';
 
 @Injectable({
   providedIn: 'root',

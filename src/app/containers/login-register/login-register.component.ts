@@ -3,7 +3,7 @@ import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
 import { LoginService } from './service/login.service';
 import { ToastrService } from 'ngx-toastr';
-import { AuthResponse } from 'src/app/classes/auth-response';
+import { AuthResponse } from 'src/app/shared/interfaces/auth-response';
 import { session } from 'src/app/classes/session';
 import { Router } from '@angular/router';
 

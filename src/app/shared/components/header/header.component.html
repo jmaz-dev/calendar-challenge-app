@@ -28,6 +28,17 @@
       <span>{{ user?.lastName }}</span>
     </div>
 
+    <div class="flex justify-center items-center mt-8">
+      <button
+        matRipple
+        class="custom-button whitespace-nowrap text-center"
+        type="button"
+        (click)="openDialog()"
+      >
+        Novo evento
+      </button>
+    </div>
+
     <button
       matRipple
       class="custom-button mt-auto"

@@ -8,6 +8,7 @@ module.exports = {
         primary: "#CEC6B4",
         secondary: "#A88E3D",
         button: "#E6C871",
+        container: "#F1E1BB",
       },
     },
   },
