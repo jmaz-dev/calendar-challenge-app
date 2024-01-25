@@ -6,9 +6,10 @@ import { ViewEventsComponent } from './components/view-events/view-events.compon
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { CompleteProfileComponent } from './components/complete-profile/complete-profile.component';
+import { AdminComponent } from './admin.component';
 
 @NgModule({
-  declarations: [ViewEventsComponent, CreateEventComponent, CompleteProfileComponent],
+  declarations: [ViewEventsComponent, CreateEventComponent, CompleteProfileComponent, AdminComponent],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
 export class AdminModule {}

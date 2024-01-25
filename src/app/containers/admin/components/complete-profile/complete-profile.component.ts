@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { UserRequest } from 'src/app/classes/user-request';
 import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
+import { AdminService } from '../../service/admin.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { session } from 'src/app/classes/session';
 
 @Component({
   selector: 'app-complete-profile',
@@ -9,11 +14,14 @@ import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
 })
 export class CompleteProfileComponent {
   form: FormGroup;
-  imageUrl: string | null = null;
+  imageUrl!: string;
   file!: File;
   constructor(
     public formUtils: ValidaFormService,
-    private formBuilder: NonNullableFormBuilder
+    private formBuilder: NonNullableFormBuilder,
+    private adminSrv: AdminService,
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       name: [
@@ -34,11 +42,31 @@ export class CompleteProfileComponent {
       ],
     });
   }
-  onSubmit() {}
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('name', this.form.value.name);
+    formData.append('lastName', this.form.value.lastName);
+    formData.append('photo', this.file);
+
+    if (this.form.invalid) {
+      return this.formUtils.validateAllFormField(this.form);
+    }
+    this.adminSrv.complete(formData).subscribe({
+      next: (res) => {
+        console.log(res);
+        if (!res.error) {
+          this.toastr.success('Sucesso!');
+          session.setItem('needsProfile', 'false');
+          setTimeout(() => {
+            this.router.navigate(['/admin']);
+          }, 200);
+        }
+      },
+    });
+  }
   onFileSelected(event: any): void {
     this.file = event.target.files[0];
 
-    console.log(this.file);
     if (this.file) {
       this.readImage(this.file);
     }

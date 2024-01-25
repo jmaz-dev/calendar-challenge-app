@@ -1,8 +1,8 @@
-export interface User {
+export interface UserRequest {
   email: string;
   password: string;
   name: string;
   lastName: string;
-  photo: string;
+  photo: File;
   isActive: boolean;
 }

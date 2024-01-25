@@ -37,14 +37,13 @@
           <img
             [src]="imageUrl"
             alt="Uploaded Image"
-            class="rounded-full max-w-40 max-h-40 mb-4"
+            class="rounded-full w-40 h-40 mb-4"
           />
         </div>
         <input
           type="file"
           (change)="onFileSelected($event)"
           #fileInput
-          formControlName="photo"
           accept="image/png"
           class="text-sm text-slate-500 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-button file:text-black hover:file:bg-button/70 cursor-pointer"
         />

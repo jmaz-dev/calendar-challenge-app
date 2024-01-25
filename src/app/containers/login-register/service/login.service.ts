@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/classes/user';
+import { UserRequest } from 'src/app/classes/user-request';
 import { first, catchError, of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Urls } from 'src/app/classes/urls';
@@ -14,7 +14,7 @@ export class LoginService {
   private readonly API = this.url.url_base_api;
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  private create(req: Partial<User>) {
+  private create(req: Partial<UserRequest>) {
     return this.httpClient.post<AuthResponse>(`${this.API}users`, req).pipe(
       first(),
       catchError((err) => {
@@ -31,7 +31,7 @@ export class LoginService {
     );
   }
 
-  private login(req: Partial<User>) {
+  private login(req: Partial<UserRequest>) {
     return this.httpClient.post<AuthResponse>(`${this.API}login`, req).pipe(
       first(),
       catchError((err) => {
@@ -49,7 +49,7 @@ export class LoginService {
     );
   }
 
-  public authenticate(req: Partial<User>, method: string) {
+  public authenticate(req: Partial<UserRequest>, method: string) {
     if (method === 'signin') {
       return this.login(req);
     } else {

@@ -33,3 +33,6 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.custom-button {
+  @apply bg-button py-2 px-10 rounded-xl text-base hover:bg-button/80 font-medium text-black border-secondary border-2;
+}

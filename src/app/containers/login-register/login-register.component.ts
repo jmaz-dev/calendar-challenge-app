@@ -55,13 +55,12 @@ export class LoginRegisterComponent {
     this.loginSrv.authenticate(this.form.value, this.title).subscribe({
       next: (res: AuthResponse) => {
         if (!res.error) {
-          this.toastr.success('Sucesso!');
           session.setItem('token', res.token);
           session.setItem('userId', res.userId);
           session.setItem('needsProfile', String(res.needsProfile));
 
           setTimeout(() => {
-            this.router.navigate(['/admin']);
+            window.location.href = '/admin';
           }, 200);
         }
       },
