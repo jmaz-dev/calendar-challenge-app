@@ -3,9 +3,12 @@
     <mat-icon (click)="getUser()" *ngIf="!open">menu</mat-icon>
   </div>
   <div *ngIf="!isAdmin"></div>
-  <img src="assets/logo.png" alt="logo" class="h-20" />
+  <img src="assets/logo.png" alt="logo" class="h-10 lg:h-20" />
 </nav>
-<section class="bg-primary h-screen w-[25%] absolute z-40 top-0" *ngIf="open">
+<section
+  class="bg-primary/95 h-screen lg:w-[30%] w-[80%] fixed z-40 top-0"
+  *ngIf="open"
+>
   <div class="w-full text-end pr-8 mt-8">
     <mat-icon (click)="open = !open" *ngIf="open">close</mat-icon>
   </div>
@@ -50,6 +53,6 @@
   </div>
 </section>
 <section
-  class="bg-black/40 h-screen w-[100%] absolute z-20 top-0"
+  class="bg-black/40 h-screen w-[100%] fixed z-20 top-0"
   *ngIf="open"
 ></section>

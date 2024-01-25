@@ -1,17 +1,19 @@
-<div class="bg-primary border-secondary border-2 rounded-lg w-[60em] h-[40em]">
+<div
+  class="bg-primary border-secondary border-2 rounded-lg xl:w-[60em] xl:h-[40em]"
+>
   <form
     class="p-8 flex flex-col text-center justify-center"
     style="height: -webkit-fill-available"
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
   >
-    <div>
+    <div class="mb-3">
       <h2 class="text-xl">Novo evento</h2>
       <p class="text-sm mt-1">
         Crie e compatilhe <span class="underline">Join My PT</span>
       </p>
     </div>
-    <div class="m-auto flex flex-col">
+    <div class="lg:m-auto flex flex-col">
       <mat-form-field>
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
@@ -42,25 +44,20 @@
           <br />
         </mat-error>
       </mat-form-field>
-      <div class="flex gap-4">
-        <div class="flex justify-center items-center gap-8">
-          <button
-            matRipple
-            class="custom-button whitespace-nowrap text-center"
-            type="button"
-            (click)="closeDialog()"
-          >
-            Cancelar
+
+      <div class="flex justify-center flex-wrap items-center gap-2 lg:gap-8">
+        <button
+          matRipple
+          class="custom-button text-center"
+          type="button"
+          (click)="closeDialog()"
+        >
+          Cancelar
+        </button>
+        <div class="flex justify-center items-center">
+          <button matRipple class="custom-button text-center" type="submit">
+            Confirmar
           </button>
-          <div class="flex justify-center items-center">
-            <button
-              matRipple
-              class="custom-button whitespace-nowrap text-center"
-              type="submit"
-            >
-              Confirmar
-            </button>
-          </div>
         </div>
       </div>
     </div>
