@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { UserRequest } from 'src/app/shared/interfaces/user-request';
 import { ValidaFormService } from 'src/app/shared/utils/valida-form.service';
 import { AdminService } from '../../service/admin.service';
 import { ToastrService } from 'ngx-toastr';
@@ -53,7 +52,6 @@ export class CompleteProfileComponent {
 
     this.adminSrv.complete(formData).subscribe({
       next: (res) => {
-        console.log(res);
         if (!res.error) {
           this.toastr.success('Usuário atualizado', 'Sucesso!');
           session.setItem('needsProfile', 'false');

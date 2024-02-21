@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -8,16 +8,16 @@ import { filter } from 'rxjs';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
-  constructor(private route: Router, private activatedRoute: ActivatedRoute) {
+  rota: any;
+  constructor(route: Router) {
     route.events
       .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {});
+      .subscribe((event: any) => {
+        this.rota = event.url;
+      });
   }
   matchRoute(rotaDesejada: string): boolean {
-    rotaDesejada = rotaDesejada.replace(/[/\\-]/g, '');
-    const rota =
-      this.activatedRoute.firstChild?.snapshot.routeConfig?.path ?? '';
-    const rotaFilha = rota.replace(/[/\\-]/g, '');
+    const rotaFilha = this.rota;
 
     if (rotaFilha === rotaDesejada) {
       return true;

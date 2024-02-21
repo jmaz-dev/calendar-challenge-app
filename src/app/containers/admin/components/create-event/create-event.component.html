@@ -23,13 +23,13 @@
             formControlName="startDate"
           />
           <input matEndDate placeholder="Fim" formControlName="endDate" />
-          <mat-error
-            *ngIf="form.get('start')?.invalid || form.get('end')?.invalid"
-            ><small>{{ formUtils.getErrorMessage(form, "end") }}</small>
-            <br />
-          </mat-error>
         </mat-date-range-input>
         <mat-hint><small>DD/MM/AAAA – DD/MM/AAAA</small></mat-hint>
+        <mat-error
+          *ngIf="form.get('startDate')?.invalid || form.get('endDate')?.invalid"
+          ><small>{{ formUtils.getErrorMessage(form, "endDate") }}</small>
+          <br />
+        </mat-error>
         <mat-datepicker-toggle
           matIconSuffix
           [for]="picker"
@@ -45,7 +45,9 @@
         </mat-error>
       </mat-form-field>
 
-      <div class="flex justify-center flex-wrap items-center gap-2 lg:gap-8">
+      <div
+        class="mt-1 flex justify-center flex-wrap items-center gap-2 lg:gap-8"
+      >
         <button
           matRipple
           class="custom-button text-center"

@@ -1,60 +1,60 @@
-<section>
-  <div class="bg-primary border-secondary border-2 rounded-lg">
-    <form
-      class="p-8 flex flex-col text-center"
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-    >
-      <h2 class="text-xl">Primeiro acesso</h2>
-      <p class="text-sm">
-        seja bem-vindo ao <span class="underline">Join My PT</span>
-      </p>
-      <p class="text-base mt-8">Por favor, complete o seu registro</p>
-      <div>
-        <mat-form-field appearance="fill" class="mt-10 mb-2 mr-8">
-          <mat-label>Nome</mat-label>
-          <input matInput formControlName formControlName="name" />
-          <mat-error *ngIf="form.get('name')?.invalid"
-            ><small>{{ formUtils.getErrorMessage(form, "name") }}</small>
-            <br />
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="mb-2">
-          <mat-label>Sobrenome</mat-label>
-          <input matInput formControlName formControlName="lastName" />
+<div
+  class="bg-primary border-secondary border-2 rounded-lg mx-4 my-12 w-80 sm:w-full"
+>
+  <form
+    class="p-8 flex flex-col text-center"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <h2 class="text-xl">Primeiro acesso</h2>
+    <p class="text-sm">
+      seja bem-vindo ao <span class="underline">Join My PT</span>
+    </p>
+    <p class="text-base mt-4">Por favor, complete o seu registro</p>
+    <div class="flex flex-col md:inline">
+      <mat-form-field appearance="fill" class="mt-10 mb-2 md:mr-8">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName formControlName="name" />
+        <mat-error *ngIf="form.get('name')?.invalid"
+          ><small>{{ formUtils.getErrorMessage(form, "name") }}</small>
+          <br />
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="mb-2">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput formControlName formControlName="lastName" />
 
-          <mat-error *ngIf="form.get('lastName')?.invalid"
-            ><small>{{ formUtils.getErrorMessage(form, "lastName") }}</small>
-            <br />
-          </mat-error>
-        </mat-form-field>
+        <mat-error *ngIf="form.get('lastName')?.invalid"
+          ><small>{{ formUtils.getErrorMessage(form, "lastName") }}</small>
+          <br />
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex flex-col justify-center items-center mb-8">
+      <div *ngIf="!imageUrl" class="flex justify-center items-center h-40">
+        <mat-icon class="text-8xl text-secondary"> account_circle</mat-icon>
       </div>
-      <div class="flex flex-col justify-center items-center mb-8">
-        <div *ngIf="!imageUrl" class="flex justify-center items-center h-40">
-          <mat-icon class="text-8xl text-secondary"> account_circle</mat-icon>
-        </div>
-        <div *ngIf="imageUrl">
-          <img
-            [src]="imageUrl"
-            alt="Uploaded Image"
-            class="rounded-full w-40 h-40 mb-4"
-          />
-        </div>
-        <input
-          type="file"
-          (change)="onFileSelected($event)"
-          #fileInput
-          accept="image/png"
-          class="text-sm text-slate-500 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-button file:text-black hover:file:bg-button/70 cursor-pointer"
+      <div *ngIf="imageUrl">
+        <img
+          [src]="imageUrl"
+          alt="Uploaded Image"
+          class="rounded-full w-40 h-40 mb-4"
         />
       </div>
-      <button
-        matRipple
-        class="bg-button py-2 rounded-lg text-lg font-medium text-black border-secondary border-2"
-        type="submit"
-      >
-        Continuar
-      </button>
-    </form>
-  </div>
-</section>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        #fileInput
+        accept="image/png"
+        class="text-sm text-slate-500 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-button file:text-black hover:file:bg-button/70 cursor-pointer"
+      />
+    </div>
+    <button
+      matRipple
+      class="bg-button py-2 rounded-lg text-lg font-medium text-black border-secondary border-2"
+      type="submit"
+    >
+      Continuar
+    </button>
+  </form>
+</div>

@@ -1,3 +1,14 @@
 .mat-icon {
   @apply w-8 h-8  lg:h-16 lg:w-16 text-secondary text-3xl lg:text-6xl cursor-pointer;
 }
+.sidebar {
+  animation: slide forwards 0.6s;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
