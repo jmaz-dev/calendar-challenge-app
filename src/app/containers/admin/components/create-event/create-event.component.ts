@@ -49,6 +49,10 @@ export class CreateEventComponent {
         if (!res.error) {
           this.toastr.success('Novo evento criado', 'Sucesso!');
           this.closeDialog();
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
         }
       },
     });
